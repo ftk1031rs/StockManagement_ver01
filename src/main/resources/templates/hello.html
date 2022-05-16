@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <title>hello</title>
+  </head>
+  <body>
+    <p th:text="${moji}"></p>
+    <table border="1" cellpadding="5">
+		<thead>
+    	    <tr>
+            	<th>ID</th>
+            	<th>name</th>
+            	<th>typeId</th>
+			</tr>
+        </thead>
+        <tbody>
+        	<tr th:each="pokeData : ${pokeDataList}">
+            	<td th:text="${pokeData.pokeId}"></td>
+            	<td th:text="${pokeData.pokeName}"></td>
+            	<td th:text="${pokeData.typeId}"></td>
+            </tr>
+        </tbody>
+    </table>
+  </body>
+</html>
