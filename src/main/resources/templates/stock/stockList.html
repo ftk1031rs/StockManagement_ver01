@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>stockList</title>
+    <!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  </head>
+  <body>
+	<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #003ffc;">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" 
+                        class="navbar-toggle collapsed" 
+                        data-toggle="collapse" 
+                        data-target="#navbar" 
+                        aria-expanded="false" 
+                        aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">在庫一覧</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">受払履歴</a></li>
+                    <li><a href="#">購入画面</a></li>
+                    <li><a href="#">処分画面</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container" style="padding-top: 50px;">
+        <div class="starter-template">
+		    <h2 id="form1">検索条件</h2>
+            <form class="form-horizontal" method="post" th:action="@{/stockserch}" th:object="${formModel}">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="examinee">品名ID</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="examinee" id="examinee" th:value="${productId}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="examinee">品名</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="examinee" id="examinee" th:value="${product}">
+                    </div>
+                </div>
+                <div class="form-group">
+                	<div class="col-sm-2"></div>
+                	<div class="col-sm-10" align="right">
+						<button type="button" class="btn btn-primary" onclick="openWindow1()">
+							検索
+						</button>
+					</div>
+                </div>
+                
+                <p th:text="${errmsg}"></p>
+
+                <h2 id="table">在庫一覧</h2>
+			    <table class="table table-striped">
+			    	<thead>
+			    		<tr>
+			    			<th>名前</th>
+			    			<th>計算結果</th>
+			    			<th>アンケート</th>
+			    		</tr>
+			    	</thead>
+			    	<tbody>
+			    		<tr>
+			    			<td>たろう</td>
+			    			<td>5</td>
+			    			<td>算数大好き</td>
+			    		</tr>
+			    		<tr>
+			    			<td>はなこ</td>
+			    			<td>10</td>
+			    			<td>どちらでもない</td>
+			    		</tr>
+			    		<tr>
+			    			<td>けんた</td>
+			    			<td>5</td>
+			    			<td>算数大嫌い</td>
+			    		</tr>
+			    		<tr>
+			    			<td>はなこ</td>
+			    			<td>10</td>
+			    			<td>どちらでもない</td>
+			    		</tr>
+                    </tbody>
+			    </table>
+            </form>
+			<hr>
+			<a class="btn btn-primary" href="#">Topに戻る</a>
+        </div>
+    </div>
+
+
+<!--    <table border="1" cellpadding="5">
+		<thead>
+    	    <tr>
+            	<th>ID</th>
+            	<th>name</th>
+            	<th>typeId</th>
+			</tr>
+        </thead>
+        <tbody>
+        	<tr th:each="pokeData : ${pokeDataList}">
+            	<td th:text="${pokeData.pokeId}"></td>
+            	<td th:text="${pokeData.pokeName}"></td>
+            	<td th:text="${pokeData.typeId}"></td>
+            </tr>
+        </tbody>
+    </table>-->
+
+
+    <!--<script src="formMain.js"></script>-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  </body>
+</html>
