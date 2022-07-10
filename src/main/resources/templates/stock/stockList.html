@@ -8,6 +8,8 @@
     <title>stockList</title>
     <!-- Bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<!-- Javascript -->
+	<script type="text/javascript" th:src="@{/stockList.js}"></script>
   </head>
   <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #003ffc;">
@@ -43,19 +45,19 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="examinee">品名ID</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="examinee" id="examinee" th:value="${productId}">
+                        <input type="text" class="form-control" name="productId" id="productId" th:value="${productId}">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="examinee">品名</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="examinee" id="examinee" th:value="${product}">
+                        <input type="text" class="form-control" name="product" id="product" th:value="${product}">
                     </div>
                 </div>
                 <div class="form-group">
                 	<div class="col-sm-2"></div>
                 	<div class="col-sm-10" align="right">
-						<button type="button" class="btn btn-primary" onclick="openWindow1()">
+						<button type="button" class="btn btn-primary" onclick="buttonClick('/stock/stockSearch')">
 							検索
 						</button>
 					</div>
@@ -120,8 +122,10 @@
     </table>-->
 
 
-    <!--<script src="formMain.js"></script>-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+	
+	
   </body>
 </html>
